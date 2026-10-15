@@ -32,3 +32,9 @@ SOFTWARE.
 Third-party software
 
 The image `turtlebot3-devel`, built from `docker/turtlebot3-devel/Dockerfile`, installs the TurtleBot3 packages of ROBOTIS CO., LTD. (`ros-noetic-turtlebot3`, `ros-noetic-turtlebot3-msgs`, and `ros-noetic-turtlebot3-simulations`), from https://github.com/ROBOTIS-GIT/turtlebot3 and https://github.com/ROBOTIS-GIT/turtlebot3_simulations, licensed under the Apache License, Version 2.0.
+
+The image `turtlebot3-ros2-devel`, built from `docker/turtlebot3-ros2-devel/Dockerfile`, installs the TurtleBot3 packages of ROBOTIS CO., LTD. for ROS 2 Lyrical (`ros-lyrical-turtlebot3-msgs`, `ros-lyrical-turtlebot3-simulations`, and `ros-lyrical-dynamixel-sdk`), from https://github.com/ROBOTIS-GIT, licensed under the Apache License, Version 2.0.
+
+The Git submodule `ros2/turtlebot3_colcon_ws/src/turtlebot3` points to `turtlebot3` of ROBOTIS CO., LTD. at the tag `2.3.7`, from https://github.com/ROBOTIS-GIT/turtlebot3, licensed under the Apache License, Version 2.0, and `patches/ros2/turtlebot3_colcon_ws/src/turtlebot3/0001-build-on-lyrical.patch` modifies three of its files so that `turtlebot3_node` builds on ROS 2 Lyrical.
+
+The image `turtlebot3-ros2-devel` caches the models `Ground Plane` and `Sun` of OpenRobotics from Gazebo Fuel, https://app.gazebosim.org/OpenRobotics, dedicated to the public domain under Creative Commons Zero v1.0 Universal.

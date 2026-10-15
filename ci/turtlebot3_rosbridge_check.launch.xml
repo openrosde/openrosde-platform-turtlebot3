@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- OpenRoSDE-specific: the TurtleBot3 on ROS 2 in Gazebo without a window and 'rosbridge', which 'ci/check-rosbridge.bash' starts in a container without network, for the CI only. -->
+
+  <!-- Start the TurtleBot3 in its world of Gazebo, with the server alone and headless rendering. -->
+  <include file="$(find-pkg-share openrosde_turtlebot3_launch)/launch/turtlebot3_bringup_default_gazebo.launch.py">
+    <arg name="gui" value="false" />
+  </include>
+
+  <!-- Start 'rosbridge' on port 9090 with the file service of the robot model, as every 'tmux' session of OpenRoSDE on ROS 2 does. -->
+  <include file="$(find-pkg-share openrosde_launch)/launch/rosbridge_server_default.launch.xml" />
+
+</launch>

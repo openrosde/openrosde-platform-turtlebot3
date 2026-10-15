@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- https://github.com/ROBOTIS-GIT/turtlebot3 -->
+  <!-- Upstream default: $(find-pkg-share turtlebot3_navigation2)/rviz/tb3_navigation2.rviz -->
+
+  <!-- Display RViz with the layout of the navigation of the TurtleBot3 robot, and stop the launch file when it closes. -->
+
+  <node pkg="rviz2" exec="rviz2" name="rviz" on_exit="shutdown" args="-d $(find-pkg-share turtlebot3_navigation2)/rviz/tb3_navigation2.rviz">
+    <param name="use_sim_time" value="false" />
+  </node>
+
+  <!-- Maximize the RViz window after it opens. -->
+  <executable cmd="$(find-pkg-prefix openrosde_launch)/lib/openrosde_launch/maximize-app-window.bash RViz" />
+
+</launch>
