@@ -17,6 +17,11 @@ __pycache__/
 **/ros/*_catkin_ws/.catkin_workspace
 **/ros/*_catkin_ws/install/
 
+# 'colcon build' auto-generated files of the platform on ROS 2:
+**/ros2/*_colcon_ws/build/
+**/ros2/*_colcon_ws/install/
+**/ros2/*_colcon_ws/log/
+
 # 'rosbag' files:
 *.bag
 

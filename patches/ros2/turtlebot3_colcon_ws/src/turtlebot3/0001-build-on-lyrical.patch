@@ -1,0 +1,55 @@
+diff --git a/turtlebot3_node/include/turtlebot3_node/odometry.hpp b/turtlebot3_node/include/turtlebot3_node/odometry.hpp
+index b3b54cc..d4d4b99 100644
+--- a/turtlebot3_node/include/turtlebot3_node/odometry.hpp
++++ b/turtlebot3_node/include/turtlebot3_node/odometry.hpp
+@@ -17,11 +17,11 @@
+ #ifndef TURTLEBOT3_NODE__ODOMETRY_HPP_
+ #define TURTLEBOT3_NODE__ODOMETRY_HPP_
+ 
+-#include <message_filters/subscriber.h>
+-#include <message_filters/sync_policies/approximate_time.h>
+-#include <message_filters/synchronizer.h>
+-#include <tf2_ros/transform_broadcaster.h>
+-#include <tf2/LinearMath/Quaternion.h>
++#include <message_filters/subscriber.hpp>
++#include <message_filters/sync_policies/approximate_time.hpp>
++#include <message_filters/synchronizer.hpp>
++#include <tf2_ros/transform_broadcaster.hpp>
++#include <tf2/LinearMath/Quaternion.hpp>
+ 
+ #include <array>
+ #include <chrono>
+diff --git a/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp b/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp
+index fdc70e4..0225667 100644
+--- a/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp
++++ b/turtlebot3_node/include/turtlebot3_node/turtlebot3.hpp
+@@ -17,7 +17,7 @@
+ #ifndef TURTLEBOT3_NODE__TURTLEBOT3_HPP_
+ #define TURTLEBOT3_NODE__TURTLEBOT3_HPP_
+ 
+-#include <tf2_ros/transform_broadcaster.h>
++#include <tf2_ros/transform_broadcaster.hpp>
+ 
+ #include <array>
+ #include <chrono>
+diff --git a/turtlebot3_node/src/odometry.cpp b/turtlebot3_node/src/odometry.cpp
+index 2bcc815..b4eddc1 100644
+--- a/turtlebot3_node/src/odometry.cpp
++++ b/turtlebot3_node/src/odometry.cpp
+@@ -89,12 +89,14 @@ Odometry::Odometry(
+     msg_ftr_joint_state_sub_ =
+       std::make_shared<message_filters::Subscriber<sensor_msgs::msg::JointState>>(
+       nh_,
+-      "joint_states");
++      "joint_states",
++      rclcpp::QoS(10));
+ 
+     msg_ftr_imu_sub_ =
+       std::make_shared<message_filters::Subscriber<sensor_msgs::msg::Imu>>(
+       nh_,
+-      "imu");
++      "imu",
++      rclcpp::QoS(10));
+ 
+     // connect message filters to synchronizer
+     joint_state_imu_sync_->connectInput(*msg_ftr_joint_state_sub_, *msg_ftr_imu_sub_);

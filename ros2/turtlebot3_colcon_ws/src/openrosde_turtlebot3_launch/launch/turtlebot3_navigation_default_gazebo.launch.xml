@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- https://github.com/ROBOTIS-GIT/turtlebot3 -->
+  <!-- Upstream default: $(find-pkg-share turtlebot3_navigation2)/launch/navigation2.launch.py -->
+
+  <!-- Start navigation on the TurtleBot3 robot with the map of the world of Gazebo and the parameters of its model, without the RViz of the upstream launch file, which a pane of its own starts. -->
+
+  <arg name="use_sim_time" default="true" />
+
+  <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+    <arg name="map" value="$(find-pkg-share openrosde_turtlebot3_launch)/config/maps/gazebo/turtlebot3_world/map.yaml" />
+    <arg name="params_file" value="$(find-pkg-share turtlebot3_navigation2)/param/$(env TURTLEBOT3_MODEL).yaml" />
+    <arg name="use_sim_time" value="$(var use_sim_time)" />
+  </include>
+
+</launch>

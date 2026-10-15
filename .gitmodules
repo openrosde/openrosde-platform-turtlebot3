@@ -1,0 +1,5 @@
+[submodule "ros2/turtlebot3_colcon_ws/src/turtlebot3"]
+	path = ros2/turtlebot3_colcon_ws/src/turtlebot3
+	url = https://github.com/ROBOTIS-GIT/turtlebot3.git
+	branch = main
+	ignore = dirty

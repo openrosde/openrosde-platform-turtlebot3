@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- https://github.com/SteveMacenski/slam_toolbox -->
+  <!-- Upstream default: $(find-pkg-share slam_toolbox)/launch/online_async_launch.py -->
+
+  <!-- Start mapping on the TurtleBot3 robot with SLAM Toolbox, since Cartographer, which 'turtlebot3_cartographer' runs, is not released for Lyrical. -->
+  <!-- Set 'use_sim_time' to 'true' in Gazebo, since the nodes of ROS 2 read the clock of the simulation only when told. -->
+
+  <arg name="use_sim_time" default="false" />
+
+  <include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">
+    <arg name="use_sim_time" value="$(var use_sim_time)" />
+  </include>
+
+</launch>
