@@ -1,6 +1,7 @@
 # TurtleBot3 (Waffle Pi)
 
-Platform-specific documentation for the Robotis [TurtleBot3 (Waffle Pi)](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/) within OpenRoSDE.
+Platform-specific documentation for the Robotis [TurtleBot3 (Waffle Pi)](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/) within OpenRoSDE, on ROS 1 Noetic.
+The same robot runs on ROS 2 Lyrical as the platform `turtlebot3-ros2` of this repository, which [turtlebot3-ros2.md](turtlebot3-ros2.md) describes.
 
 ## 🔗 External Resources
 
