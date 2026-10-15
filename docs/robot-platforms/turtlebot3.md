@@ -20,14 +20,15 @@ The Robotis TurtleBot3 (Waffle Pi) platform consists of the following components
 
 ## ⚙️ Platform Configuration
 
-Switch to the Robotis TurtleBot3 platform:
+Clone this platform into `extensions/` of the core of OpenRoSDE, then switch to the Robotis TurtleBot3 platform:
 
 ```shell
+git clone https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
 bash ./SWITCH-ROBOT-PLATFORM.bash turtlebot3
 ```
 
 > [!NOTE]
-> The default `.env` configuration is already pre-configured for the Robotis TurtleBot3 platform.
+> The default `.env` of the core already selects the Robotis TurtleBot3 platform, so the clone alone is enough to run it.
 > Creating `.env.custom` is only necessary to override specific settings.
 
 ## 🌐 Network Configuration
