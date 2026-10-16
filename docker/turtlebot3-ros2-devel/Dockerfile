@@ -4,7 +4,7 @@
 ################################################################################
 
 # Inherit from the OpenRoSDE base image of ROS 2 which provides all common tools.
-ARG OPENROSDE_BASE_IMAGE=registry.gitlab.com/coarobo/sde/openrosde-base-ros2:main
+ARG OPENROSDE_BASE_IMAGE=ghcr.io/openrosde/openrosde-base-ros2:main
 FROM ${OPENROSDE_BASE_IMAGE}
 
 ################################################################################

@@ -1,9 +1,9 @@
 # OpenRoSDE Platform TurtleBot3
 
-The Robotis TurtleBot3 (Waffle Pi) platforms of [OpenRoSDE](https://gitlab.com/coarobo/SDE), read "Open Robotic SDE", the open-source Software Development Environment for collaborative robotics research maintained by [Coarobo GK](https://coarobo.com/): `turtlebot3` on ROS 1 Noetic, and `turtlebot3-ros2` on ROS 2 Lyrical beside it.
+The Robotis TurtleBot3 (Waffle Pi) platforms of [OpenRoSDE](https://github.com/openrosde/openrosde), read "Open Robotic SDE", the open-source Software Development Environment for collaborative robotics research maintained by [Coarobo GK](https://coarobo.com/): `turtlebot3` on ROS 1 Noetic, and `turtlebot3-ros2` on ROS 2 Lyrical beside it.
 It is an extension that OpenRoSDE finds by name once it is cloned into `extensions/openrosde-platform-turtlebot3/` of the core.
 
-[![Pipeline](https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3/badges/main/pipeline.svg)](https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3/-/pipelines)
+[![Test with OpenRoSDE](https://github.com/openrosde/openrosde-platform-turtlebot3/actions/workflows/test-with-openrosde.yml/badge.svg?branch=main)](https://github.com/openrosde/openrosde-platform-turtlebot3/actions/workflows/test-with-openrosde.yml)
 [![ROS Noetic](https://img.shields.io/badge/ROS_Noetic-Framework-blue?logo=ros&logoColor=white)](http://wiki.ros.org/noetic)
 [![ROS 2 Lyrical](https://img.shields.io/badge/ROS_2_Lyrical-Framework-blue?logo=ros&logoColor=white)](https://docs.ros.org/en/lyrical/)
 [![Gazebo](https://img.shields.io/badge/Gazebo-Simulator-blue)](http://gazebosim.org/)
@@ -43,21 +43,21 @@ It is an extension that OpenRoSDE finds by name once it is cloned into `extensio
 | `ci/check-in-container.bash`                        | Check of the TurtleBot3 on ROS 2 in Gazebo over `rosbridge`, with its robot model, which the CI of the core runs with no network. |
 | `docs/robot-platforms/turtlebot3-ros2.md`           | Documentation of the platform on ROS 2.                                                                                           |
 
-The layout is the one of the core, which the [Extensions](https://gitlab.com/coarobo/SDE/-/blob/dev/docs/extensions.md) guide of OpenRoSDE describes.
+The layout is the one of the core, which the [Extensions](https://github.com/openrosde/openrosde/blob/dev/docs/extensions.md) guide of OpenRoSDE describes.
 
 ## 🚀 Quick Start
 
-1. Clone and set up the core of OpenRoSDE on the Ubuntu development machine, as its [Quick Start](https://gitlab.com/coarobo/SDE#-quick-start) describes:
+1. Clone and set up the core of OpenRoSDE on the Ubuntu development machine, as its [Quick Start](https://github.com/openrosde/openrosde#-quick-start) describes:
 
     ```shell
-    git clone https://gitlab.com/coarobo/SDE.git && cd SDE/
+    git clone https://github.com/openrosde/openrosde.git && cd openrosde/
     bash ./SETUP-DEVEL-MACHINE.bash
     ```
 
 2. Clone this platform into `extensions/` of the core:
 
     ```shell
-    git clone https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
+    git clone https://github.com/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
     ```
 
 3. Switch to the platform, `turtlebot3` on ROS 1 or `turtlebot3-ros2` on ROS 2, which also clones the Git submodules of every extension and applies their patches:
@@ -89,21 +89,21 @@ Update the platform with `git -C extensions/openrosde-platform-turtlebot3 pull`,
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | [Robot Platforms / TurtleBot3](docs/robot-platforms/turtlebot3.md)               | Robotis TurtleBot3 (Waffle Pi) configuration, simulation, and operation                   |
 | [Robot Platforms / TurtleBot3 on ROS 2](docs/robot-platforms/turtlebot3-ros2.md) | Robotis TurtleBot3 (Waffle Pi) on ROS 2 Lyrical: packages, simulation, real robot, and CI |
-| [ROS 2](https://gitlab.com/coarobo/SDE/-/blob/dev/docs/ros2.md)                  | How OpenRoSDE runs a platform on ROS 2 beside those on ROS 1                              |
-| [Basic Usage](https://gitlab.com/coarobo/SDE/-/blob/dev/docs/basic-usage.md)     | Full setup guide of the core of OpenRoSDE                                                 |
-| [Extensions](https://gitlab.com/coarobo/SDE/-/blob/dev/docs/extensions.md)       | How OpenRoSDE finds the files of a cloned extension and tests it                          |
+| [ROS 2](https://github.com/openrosde/openrosde/blob/dev/docs/ros2.md)                  | How OpenRoSDE runs a platform on ROS 2 beside those on ROS 1                              |
+| [Basic Usage](https://github.com/openrosde/openrosde/blob/dev/docs/basic-usage.md)     | Full setup guide of the core of OpenRoSDE                                                 |
+| [Extensions](https://github.com/openrosde/openrosde/blob/dev/docs/extensions.md)       | How OpenRoSDE finds the files of a cloned extension and tests it                          |
 
 ## 🧪 Continuous Integration
 
-The CI of the core of OpenRoSDE tests this platform at the commit that `gitlab-ci/extensions.repos` of the core pins: it builds or reuses the image `registry.gitlab.com/coarobo/sde/turtlebot3-devel`, builds the Catkin workspaces in it, and checks every launch entry point of the panes.
+The CI of the core of OpenRoSDE tests this platform at the commit that `gitlab-ci/extensions.repos` of the core pins: it builds or reuses the image `ghcr.io/openrosde/turtlebot3-devel`, builds the Catkin workspaces in it, and checks every launch entry point of the panes.
 It publishes the image as `dev` or `main` from those branches of the core, and under the tag of a release of the core, such as `v3.0.0`.
 It does the same for `turtlebot3-ros2` with the image `turtlebot3-ros2-devel` on the base image of ROS 2, builds its colcon workspace, and runs `ci/check-in-container.bash`, which drives the TurtleBot3 in Gazebo over `rosbridge` and fetches its robot model, with no network.
 
-`.gitlab-ci.yml` of this repository triggers a pipeline of the core on `dev` for every change, with `OPENROSDE_CI_EXTENSION_OVERRIDE` set to this project, its branch, and its commit, so that the core tests only the setups that run this platform, at that commit, and publishes nothing.
+`.github/workflows/test-with-openrosde.yml` of this repository calls the reusable workflow `extension.yml` of the core on `dev` for every push to `main` and every pull request, which checks out this commit in place of the version that the core pins, tests only the setups that run this platform, and publishes nothing.
 
 ## 🐛 Reporting Issues
 
-Please report any issue of this platform using the GitLab issue tracker: [https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3/-/issues](https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3/-/issues).
+Please report any issue of this platform using the GitHub issue tracker: [https://github.com/openrosde/openrosde-platform-turtlebot3/issues](https://github.com/openrosde/openrosde-platform-turtlebot3/issues).
 
 ## 📜 Third-Party Software
 
@@ -113,11 +113,11 @@ The images `turtlebot3-devel` and `turtlebot3-ros2-devel` and the workspaces bri
 | Component                                                                                                 | Source                                                                                                                   | License                                                                     |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
 | TurtleBot3 packages of ROBOTIS: `turtlebot3`, `turtlebot3_msgs`, and `turtlebot3_simulations`             | Debian packages `ros-noetic-turtlebot3*` of the image `turtlebot3-devel`, from https://github.com/ROBOTIS-GIT/turtlebot3 | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) (ROBOTIS CO., LTD.) |
-| ROS Noetic, Gazebo, FlexBE, and the other packages of the image `openrosde-base`                          | The core of OpenRoSDE, https://gitlab.com/coarobo/SDE                                                                    | Per upstream, such as BSD, Apache-2.0, or MIT                               |
+| ROS Noetic, Gazebo, FlexBE, and the other packages of the image `openrosde-base`                          | The core of OpenRoSDE, https://github.com/openrosde/openrosde                                                                    | Per upstream, such as BSD, Apache-2.0, or MIT                               |
 | TurtleBot3 packages of ROBOTIS on ROS 2: `turtlebot3_msgs`, `turtlebot3_simulations`, and `dynamixel_sdk` | Debian packages `ros-lyrical-*` of the image `turtlebot3-ros2-devel`, from https://github.com/ROBOTIS-GIT                | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) (ROBOTIS CO., LTD.) |
 | `turtlebot3` of ROBOTIS at `2.3.7`                                                                        | Git submodule `ros2/turtlebot3_colcon_ws/src/turtlebot3`, from https://github.com/ROBOTIS-GIT/turtlebot3                 | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) (ROBOTIS CO., LTD.) |
 | Models `Ground Plane` and `Sun` of OpenRobotics                                                           | Gazebo Fuel, cached in the image `turtlebot3-ros2-devel`, from https://app.gazebosim.org/OpenRobotics                    | [CC0-1.0](https://spdx.org/licenses/CC0-1.0.html)                           |
-| ROS 2 Lyrical, Gazebo Jetty, and the other packages of the image `openrosde-base-ros2`                    | The core of OpenRoSDE, https://gitlab.com/coarobo/SDE                                                                    | Per upstream, such as BSD, Apache-2.0, or MIT                               |
+| ROS 2 Lyrical, Gazebo Jetty, and the other packages of the image `openrosde-base-ros2`                    | The core of OpenRoSDE, https://github.com/openrosde/openrosde                                                                    | Per upstream, such as BSD, Apache-2.0, or MIT                               |
 
 ## 🕰️ History
 

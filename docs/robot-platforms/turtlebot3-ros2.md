@@ -7,14 +7,14 @@ Platform-specific documentation for the Robotis [TurtleBot3 (Waffle Pi)](https:/
 - Official manual: [https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
 - GitHub repository: [https://github.com/ROBOTIS-GIT/turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3)
 - GitHub repository of the simulation: [https://github.com/ROBOTIS-GIT/turtlebot3_simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations)
-- ROS 2 in OpenRoSDE: [https://gitlab.com/coarobo/SDE/-/blob/dev/docs/ros2.md](https://gitlab.com/coarobo/SDE/-/blob/dev/docs/ros2.md)
+- ROS 2 in OpenRoSDE: [https://github.com/openrosde/openrosde/blob/dev/docs/ros2.md](https://github.com/openrosde/openrosde/blob/dev/docs/ros2.md)
 
 ## ⚙️ Platform Configuration
 
 Clone this repository into `extensions/` of the core of OpenRoSDE, then switch to the platform on ROS 2:
 
 ```shell
-git clone https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
+git clone https://github.com/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
 bash ./SWITCH-ROBOT-PLATFORM.bash turtlebot3-ros2
 ```
 

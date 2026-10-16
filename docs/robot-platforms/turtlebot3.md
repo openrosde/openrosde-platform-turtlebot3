@@ -24,7 +24,7 @@ The Robotis TurtleBot3 (Waffle Pi) platform consists of the following components
 Clone this platform into `extensions/` of the core of OpenRoSDE, then switch to the Robotis TurtleBot3 platform:
 
 ```shell
-git clone https://gitlab.com/coarobo/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
+git clone https://github.com/openrosde/openrosde-platform-turtlebot3.git extensions/openrosde-platform-turtlebot3
 bash ./SWITCH-ROBOT-PLATFORM.bash turtlebot3
 ```
 
